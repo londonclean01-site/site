@@ -85,15 +85,15 @@ export function Footer() {
             <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>123 High Street, London,<br />SW1A 1AA, United Kingdom</span>
+                <span>Raymor Court, 91 Upper Clapton Rd,<br />London E5 9BX, United Kingdom</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+442012345678" className="hover:text-primary transition-colors">+44 20 1234 5678</a>
+                <a href="tel:+447438217078" className="hover:text-primary transition-colors">+44 7438 217078</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:hello@london-clean.com" className="hover:text-primary transition-colors">hello@london-clean.com</a>
+                <a href="mailto:info@londonclean.co.uk" className="hover:text-primary transition-colors">info@londonclean.co.uk</a>
               </li>
             </ul>
           </div>

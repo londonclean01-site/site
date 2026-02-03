@@ -32,7 +32,7 @@ export function CleaningSolutionsCombinedSection() {
             className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-xl"
           >
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop"
+              src="/1collage.avif"
               alt="Professional cleaning service"
               fill
               className="object-cover"

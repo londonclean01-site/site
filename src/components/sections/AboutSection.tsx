@@ -17,7 +17,7 @@ const tabs: TabItem[] = [
     number: "1",
     title: "Professionalism and Quality Combined",
     description: "We specialize in delivering exceptional construction services with a focus on quality, integrity, and customer satisfaction. With over 20 years of experience.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
+    image: "/punkt1.jpg",
     imageAlt: "Professional cleaning service in London",
   },
   {
@@ -31,14 +31,14 @@ const tabs: TabItem[] = [
     number: "3",
     title: "Where cleanliness meets convenience",
     description: "Experience the perfect blend of cleanliness and convenience with our innovative solutions, ensuring a spotless environment effortlessly, saving you time and effort every day.",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop",
+    image: "/punkt3.jpg",
     imageAlt: "Convenient cleaning solutions",
   },
   {
     number: "4",
     title: "Creating spaces that sparkle and shine",
     description: "We create clean, fresh, and sparkling spaces with our professional cleaning services, ensuring a healthy and welcoming environment for your home or workplace.",
-    image: "https://images.unsplash.com/photo-1584622781867-7bb29bb316bc?q=80&w=1200&auto=format&fit=crop",
+    image: "/punkt4.jpg",
     imageAlt: "Sparkling clean spaces",
   },
 ];

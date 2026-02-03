@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { QuoteModal } from "@/components/modals/QuoteModal";
 
 export function HeroSection() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
   return (
     <section className="relative pt-20 pb-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -19,14 +23,6 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                #1 Cleaning Service in London
-              </div>
-              
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-foreground leading-[1.1]">
                 Quality cleaning for your <span className="text-primary">peace of mind</span> in London.
               </h1>
@@ -36,11 +32,9 @@ export function HeroSection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button size="lg" className="rounded-full text-base h-12 px-8" asChild>
-                  <Link href="/contact">
-                    Get a Quote
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
+                <Button size="lg" className="rounded-full text-base h-12 px-8" onClick={() => setIsQuoteModalOpen(true)}>
+                  Get a Quote
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Button variant="outline" size="lg" className="rounded-full text-base h-12 px-8" asChild>
                   <Link href="/services">Explore Services</Link>
@@ -49,10 +43,20 @@ export function HeroSection() {
 
               <div className="flex items-center gap-4 text-sm font-medium">
                 <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-muted flex items-center justify-center overflow-hidden">
-                      {/* Placeholder for user avatars */}
-                      <div className="w-full h-full bg-gray-200" /> 
+                  {[
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
+                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces",
+                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces",
+                    "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&crop=faces"
+                  ].map((src, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                      <Image
+                        src={src}
+                        alt={`Customer ${i + 1}`}
+                        width={40}
+                        height={40}
+                        className="object-cover"
+                      />
                     </div>
                   ))}
                 </div>
@@ -78,40 +82,18 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-muted"
             >
-               {/* Note: In a real project, we would use a real image here. 
-                   For now, using a colored div placeholder that matches the design aesthetic. */}
-               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-primary/20">
-                  <SparklesIcon className="w-32 h-32" />
-               </div>
-               {/* 
                <Image 
-                 src="/hero-image.jpg" 
-                 alt="Professional cleaner in a modern London apartment"
+                 src="/heroblock.png" 
+                 alt="Professional cleaning service in modern London home"
                  fill
                  className="object-cover"
                  priority
                />
-               */}
             </motion.div>
           </div>
         </div>
       </div>
+      <QuoteModal open={isQuoteModalOpen} onOpenChange={setIsQuoteModalOpen} />
     </section>
-  );
-}
-
-function SparklesIcon({ className }: { className?: string }) {
-  return (
-    <svg 
-      className={className} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="1"
-    >
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-      <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
-      <path d="M19 11h2m-1 -1v2" />
-    </svg>
   );
 }

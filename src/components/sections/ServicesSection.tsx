@@ -10,39 +10,36 @@ import { cn } from "@/lib/utils";
 
 const services = [
   {
-    id: "home",
+    id: "domestic",
     icon: Home,
-    title: "Home Cleaning",
-    description: "Refresh your living space with our premium Home Cleaning Service. Our London-based team ensures a spotless, healthy home with meticulous care.",
-    features: ["Deep cleaning for pure comfort", "Kitchen & Bathroom sanitization", "Pet-friendly products"]
+    title: "Domestic Cleaning",
+    description: "Keep your home consistently clean and comfortable with our regular domestic cleaning services. We handle all the routine cleaning tasks so you can enjoy your free time.",
+    features: ["Regular weekly or bi-weekly cleaning", "Kitchen & bathroom sanitization", "Flexible scheduling"],
+    image: "/1serivce.jpeg"
   },
   {
-    id: "disinfection",
-    icon: Sparkles,
-    title: "Disinfection Service",
-    description: "Protect your space with our advanced Disinfection Service. We use hospital-grade, eco-friendly solutions to eliminate 99.9% of pathogens.",
-    features: ["Effective viral elimination", "Eco-friendly fogging", "High-touch point focus"]
-  },
-  {
-    id: "office",
+    id: "end-of-tenancy",
     icon: Building2,
-    title: "Office Cleaning",
-    description: "Keep your workspace pristine with our Office Cleaning Service. A hygienic environment boosts productivity and leaves a lasting impression.",
-    features: ["After-hours service available", "Desk & IT equipment cleaning", "Communal area maintenance"]
+    title: "End of Tenancy Cleaning",
+    description: "Moving out? Leave the cleaning to us. Professional end of tenancy cleaning designed to meet landlord and letting agency standards across London.",
+    features: ["Full deposit return guarantee", "Inspection-ready results", "Systematic deep cleaning"],
+    image: "/2service.jpg"
   },
   {
-    id: "floor",
+    id: "deep-cleaning",
+    icon: Sparkles,
+    title: "Deep Cleaning",
+    description: "For a thorough and intensive clean, our deep cleaning services target every corner of your space. Perfect for spring cleaning or preparing for special occasions.",
+    features: ["Every corner cleaned", "Hard-to-reach spots included", "Kitchen appliances deep cleaned"],
+    image: "/3service.jpg"
+  },
+  {
+    id: "after-builders",
     icon: Layers,
-    title: "Floor Polishing",
-    description: "Restore shine with our professional Floor Polishing Service. Advanced techniques for marble, wood, and tile floors across London properties.",
-    features: ["Scratch removal", "Protective coating", "High-gloss finish"]
-  },
-  {
-    id: "dust",
-    icon: Wind,
-    title: "Dust Removal",
-    description: "Breathe cleaner air with our comprehensive Dust Removal Service. We target hard-to-reach areas to reduce allergens and improve air quality.",
-    features: ["HEPA filtration vacuums", "Allergen reduction", "Vent & detailed dusting"]
+    title: "After Builders Cleaning",
+    description: "Post-construction cleaning to remove dust, debris, and building materials. We'll make your newly renovated space move-in ready.",
+    features: ["Dust & debris removal", "Window & surface cleaning", "Floor polishing"],
+    image: "/4service.jpg"
   }
 ];
 
@@ -103,8 +100,9 @@ export function ServicesSection() {
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <Image
-                  src="/images/wNxGJl0eU5GFO7O0ury7NypNJWo.avif"
-                  alt="Professional cleaning service background"
+                  key={activeService.id}
+                  src={activeService.image}
+                  alt={`${activeService.title} background`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 66vw"

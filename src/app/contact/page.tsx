@@ -4,8 +4,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export const metadata: Metadata = {
-  title: "Contact Us | London Clean",
-  description: "Get in touch with London Clean for a quote or booking. Serving all London boroughs.",
+  title: "Contact Us - Get a Free Quote",
+  description: "Contact London Clean for a free quote. Professional cleaning services across all London boroughs. Book online or call +44 20 1234 5678. Same-day service available.",
+  keywords: ["contact London Clean", "cleaning quote London", "book cleaning service", "cleaning company contact", "London cleaners phone"],
+  openGraph: {
+    title: "Contact London Clean - Get a Free Quote Today",
+    description: "Get in touch for professional cleaning services across London. Free quotes, flexible scheduling.",
+    url: "https://londonclean.co.uk/contact",
+  },
+  alternates: {
+    canonical: "https://londonclean.co.uk/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -4,6 +4,9 @@ import "./globals.css";
 import { defaultMetadata } from "@/lib/seo/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManager";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({
@@ -26,6 +29,10 @@ export default function RootLayout({
           inter.variable
         )}
       >
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
+        <GoogleTagManagerNoScript gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
+        <LocalBusinessSchema />
         <Header />
         <main className="flex-1 min-h-screen pt-20">
           {children}

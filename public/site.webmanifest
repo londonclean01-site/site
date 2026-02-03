@@ -1,0 +1,16 @@
+{
+  "name": "London Clean - Professional Cleaning Service",
+  "short_name": "London Clean",
+  "description": "Professional cleaning services across Greater London. Residential & commercial cleaning with eco-friendly products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

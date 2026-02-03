@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Clock, User } from "lucide-react";
+import { Shield, Clock, Leaf, Award } from "lucide-react";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const features = [
   {
-    icon: Sparkles,
+    icon: Shield,
     title: "Freshness you deserve",
     description: "Step into a space that feels as fresh as it looks. Our cleaning services are designed to rejuvenate cleanliness efficient processes.",
   },
@@ -15,7 +16,7 @@ const features = [
     description: "You can focus on what truly matters. With efficient processes, expert teams, and thorough attention to detail.",
   },
   {
-    icon: User,
+    icon: Leaf,
     title: "Experience spotless",
     description: "Our expert cleaning services go beyond the surface to ensure every corner of your home or office.",
   },

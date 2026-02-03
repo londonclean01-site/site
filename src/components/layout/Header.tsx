@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Logo } from "./Logo";
+import { QuoteModal } from "@/components/modals/QuoteModal";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -23,6 +24,7 @@ export function Header() {
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
@@ -33,8 +35,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b py-3 shadow-sm"
-          : "bg-transparent py-5"
+          ? "bg-background/80 backdrop-blur-md border-b py-4 shadow-sm"
+          : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -59,8 +61,8 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button asChild size="lg" className="rounded-full px-6">
-            <Link href="/contact">Get Started Now</Link>
+          <Button size="lg" className="rounded-full px-6" onClick={() => setIsQuoteModalOpen(true)}>
+            Request a Quote
           </Button>
         </div>
 
@@ -94,16 +96,15 @@ export function Header() {
                 ))}
               </nav>
               <div className="flex flex-col gap-4 mt-auto">
-                <Button asChild size="lg" className="w-full rounded-full">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Get Started Now
-                  </Link>
+                <Button size="lg" className="w-full rounded-full" onClick={() => { setIsOpen(false); setIsQuoteModalOpen(true); }}>
+                  Request a Quote
                 </Button>
               </div>
             </div>
           </SheetContent>
         </Sheet>
       </div>
+      <QuoteModal open={isQuoteModalOpen} onOpenChange={setIsQuoteModalOpen} />
     </header>
   );
 }

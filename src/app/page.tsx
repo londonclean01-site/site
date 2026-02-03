@@ -6,7 +6,9 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { CleaningSolutionsCombinedSection } from "@/components/sections/CleaningSolutionsCombinedSection";
+import { PricingSection } from "@/components/sections/PricingSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -21,7 +23,9 @@ export default function Home() {
       <ServicesSection />
       <CleaningSolutionsCombinedSection />
       <BeforeAfterSection />
+      <PricingSection />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </>
   );

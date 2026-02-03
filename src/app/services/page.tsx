@@ -1,32 +1,64 @@
 import { Metadata } from "next";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
+import { ServicesDetailedSection } from "@/components/sections/ServicesDetailedSection";
 
 export const metadata: Metadata = {
-  title: "Our Services | London Clean",
-  description: "Explore our comprehensive cleaning services in London. Home, office, disinfection, and more.",
+  title: "Professional Cleaning Services in London",
+  description: "Comprehensive cleaning services across London. Domestic, end of tenancy, deep cleaning, after builders, after party, eco cleaning, and VIP luxury cleaning. Book online today.",
+  keywords: [
+    "cleaning services London",
+    "domestic cleaning",
+    "end of tenancy cleaning",
+    "deep cleaning service",
+    "after builders cleaning",
+    "after party cleaning",
+    "eco cleaning",
+    "VIP luxury cleaning",
+  ],
+  openGraph: {
+    title: "Professional Cleaning Services in London | LondonClean",
+    description: "Comprehensive cleaning services for homes and offices across Greater London.",
+    url: "https://londonclean.co.uk/services",
+  },
+  alternates: {
+    canonical: "https://londonclean.co.uk/services",
+  },
 };
 
 export default function ServicesPage() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-24">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-      <p className="text-lg text-muted-foreground max-w-2xl mb-12">
-        Professional cleaning solutions tailored to your needs. From one-off deep cleans to regular office maintenance.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* TODO: Add Services Grid Component here */}
-        <div className="p-6 border rounded-xl">
-          <h3 className="text-xl font-bold mb-2">Home Cleaning</h3>
-          <p className="text-muted-foreground">Comprehensive cleaning for your residence.</p>
-        </div>
-        <div className="p-6 border rounded-xl">
-          <h3 className="text-xl font-bold mb-2">Office Cleaning</h3>
-          <p className="text-muted-foreground">Keep your workspace professional and hygienic.</p>
-        </div>
-        <div className="p-6 border rounded-xl">
-          <h3 className="text-xl font-bold mb-2">Disinfection</h3>
-          <p className="text-muted-foreground">Advanced sanitization services.</p>
-        </div>
-      </div>
-    </div>
+    <>
+      <ServiceSchema
+        serviceName="Domestic Cleaning"
+        description="Professional home cleaning services for houses and apartments across London. Regular and one-off cleaning available."
+        priceRange="£20-£50"
+        serviceType="House Cleaning"
+      />
+      <ServiceSchema
+        serviceName="End of Tenancy Cleaning"
+        description="Move-out cleaning services to ensure full deposit return. Comprehensive cleaning of entire property to meet landlord standards."
+        priceRange="£100-£250"
+        serviceType="End of Tenancy Cleaning"
+      />
+      <ServiceSchema
+        serviceName="Deep Cleaning"
+        description="Thorough deep cleaning service for homes and offices. Every corner cleaned to perfection with attention to detail."
+        priceRange="£80-£200"
+        serviceType="Deep Cleaning"
+      />
+      <ServiceSchema
+        serviceName="After Builders Cleaning"
+        description="Post-construction cleaning to remove dust, debris, and building materials. Move-in ready results."
+        priceRange="£150-£350"
+        serviceType="After Builders Cleaning"
+      />
+      <ServiceSchema
+        serviceName="Eco Cleaning"
+        description="Environmentally conscious cleaning using eco-friendly products safe for your family, pets, and the planet."
+        priceRange="£25-£60"
+        serviceType="Eco Cleaning"
+      />
+      <ServicesDetailedSection />
+    </>
   );
 }

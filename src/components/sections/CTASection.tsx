@@ -1,19 +1,25 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
+import { QuoteRequestForm } from "@/components/forms/QuoteRequestForm";
+import { fadeInUp, fadeInUpDelayed, scaleIn } from "@/lib/animations";
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+    <section className="py-16 sm:py-20 md:py-24 bg-background overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-6 max-w-7xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-[2.5rem] bg-primary overflow-hidden px-6 py-16 md:px-16 md:py-24 text-center md:text-left"
+          {...fadeInUp}
+          className="relative rounded-[2.5rem] bg-primary overflow-hidden px-6 py-16 md:px-16 md:py-24"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -22,8 +28,9 @@ export function CTASection() {
             </svg>
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="max-w-2xl">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Side - Heading & Benefits */}
+            <div>
               <h2 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-6 tracking-tight">
                 A cleaner space is just a <span className="text-white/80">click away!</span>
               </h2>
@@ -32,34 +39,35 @@ export function CTASection() {
                 Our expert team in London is ready to transform your space.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <div className="flex items-center gap-2 text-primary-foreground/90">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>Fully Insured</span>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-primary-foreground/90">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                  <span>Fully Insured & Vetted Professionals</span>
                 </div>
-                <div className="flex items-center gap-2 text-primary-foreground/90">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>Vetted Staff</span>
+                <div className="flex items-center gap-3 text-primary-foreground/90">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                  <span>Eco-Friendly Products Safe for Pets & Children</span>
                 </div>
-                <div className="flex items-center gap-2 text-primary-foreground/90">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>Eco-Friendly</span>
+                <div className="flex items-center gap-3 text-primary-foreground/90">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                  <span>Flexible Scheduling 7 Days a Week</span>
+                </div>
+                <div className="flex items-center gap-3 text-primary-foreground/90">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                  <span>100% Satisfaction Guarantee</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex-shrink-0">
-              <Button 
-                size="lg" 
-                variant="secondary" 
-                className="h-16 px-10 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                asChild
-              >
-                <Link href="/contact">
-                  Book an Appointment
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
+            {/* Right Side - Quote Request Form */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+              <h3 className="text-2xl font-bold text-primary-foreground mb-2">
+                Request a Free Quote
+              </h3>
+              <p className="text-primary-foreground/70 mb-6">
+                Fill out the form and we'll get back to you within 24 hours
+              </p>
+              <QuoteRequestForm />
             </div>
           </div>
         </motion.div>
