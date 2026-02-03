@@ -3,8 +3,8 @@ import { Metadata } from "next";
 export const siteConfig = {
   name: "London Clean",
   description: "Professional cleaning service in London. Residential & commercial cleaning across Greater London. Eco-friendly products, trusted cleaners. Book online today. ⭐ 4.8/5 (566 reviews)",
-  url: "https://londonclean.co.uk",
-  ogImage: "https://londonclean.co.uk/og-image.jpg",
+  url: "https://london-clean01.co.uk",
+  ogImage: "https://london-clean01.co.uk/og-image.jpg",
   locale: "en_GB",
   keywords: [
     "cleaning service London",

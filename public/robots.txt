@@ -1,0 +1,16 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /_next/*
+Disallow: /admin/*
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Host
+Host: https://londonclean01
+
+# Sitemaps
+Sitemap: https://londonclean01/sitemap.xml

@@ -7,9 +7,9 @@ import { fadeInUp, fadeInUpDelayed, scaleIn } from "@/lib/animations";
 
 export function CTASection() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-background overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-24 bg-background overflow-hidden relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '40px 40px'
@@ -22,7 +22,7 @@ export function CTASection() {
           className="relative rounded-[2.5rem] bg-primary overflow-hidden px-6 py-16 md:px-16 md:py-24"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
             <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
             </svg>

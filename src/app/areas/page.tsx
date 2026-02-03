@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Areas We Serve - London Clean',
     description: 'Find professional cleaning services in your London area. Covering 15+ districts across Greater London.',
-    url: 'https://londonclean.co.uk/areas',
+    url: 'https://london-clean01.co.uk/areas',
   },
   alternates: {
-    canonical: 'https://londonclean.co.uk/areas',
+    canonical: 'https://london-clean01.co.uk/areas',
   },
 };
 

@@ -35,6 +35,13 @@ interface FormData {
   service: string;
 }
 
+interface FormErrors {
+  name?: string;
+  phone?: string;
+  email?: string;
+  service?: string;
+}
+
 export function QuoteRequestForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -42,15 +49,91 @@ export function QuoteRequestForm() {
     email: "",
     service: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Real-time field validation helpers
+  const validateNameInput = (value: string): string => {
+    // Remove any characters that are not letters, spaces, hyphens, or apostrophes
+    return value.replace(/[^a-zA-Z\s'-]/g, '');
+  };
+
+  const validatePhoneInput = (value: string): string => {
+    // Only allow digits, +, spaces, parentheses, and hyphens
+    return value.replace(/[^0-9+\s()-]/g, '');
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Name validation - must contain at least first and last name
+    const nameTrimmed = formData.name.trim();
+    if (!nameTrimmed) {
+      newErrors.name = "Full name is required";
+    } else if (nameTrimmed.length < 3) {
+      newErrors.name = "Please enter your full name (minimum 3 characters)";
+    } else if (!/^[a-zA-Z\s'-]+$/.test(nameTrimmed)) {
+      newErrors.name = "Name can only contain letters, spaces, hyphens and apostrophes";
+    } else if (nameTrimmed.split(' ').filter((word: string) => word.length > 0).length < 2) {
+      newErrors.name = "Please enter both first and last name";
+    }
+
+    // UK/London Phone validation
+    // Accepts: +44, 07, 020, etc.
+    // Examples: +447123456789, 07123456789, 020 1234 5678, +44 20 1234 5678
+    const phoneTrimmed = formData.phone.trim().replace(/\s/g, '');
+    if (!phoneTrimmed) {
+      newErrors.phone = "Phone number is required";
+    } else {
+      // UK mobile: starts with 07 or +447, 11 digits total (with +44) or 11 digits (07...)
+      // UK landline: starts with 01 or 02 or +441/+442, 10-11 digits
+      const ukMobilePattern = /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/;
+      const ukLandlinePattern = /^(\+44\s?[1-2]\d{1,2}|\(?0[1-2]\d{1,2}\)?)\s?\d{3,4}\s?\d{4}$/;
+      const internationalPattern = /^\+\d{10,15}$/;
+      
+      const phoneFormatted = formData.phone.trim();
+      const phoneDigitsOnly = phoneTrimmed.replace(/[^0-9+]/g, '');
+      
+      if (!ukMobilePattern.test(phoneFormatted) && 
+          !ukLandlinePattern.test(phoneFormatted) && 
+          !internationalPattern.test(phoneDigitsOnly)) {
+        newErrors.phone = "Please enter a valid UK phone number (e.g., 07123456789 or 020 1234 5678)";
+      }
+    }
+
+    // Email validation (optional but must be valid if provided)
+    const emailTrimmed = formData.email.trim();
+    if (emailTrimmed) {
+      // RFC 5322 compliant email regex (simplified)
+      const emailPattern = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      if (!emailPattern.test(emailTrimmed)) {
+        newErrors.email = "Please enter a valid email address";
+      }
+    }
+
+    // Service validation
+    if (!formData.service) {
+      newErrors.service = "Please select a service";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setErrorMessage("");
+    setErrors({});
 
     try {
       const response = await fetch("/api/contact", {
@@ -66,6 +149,7 @@ export function QuoteRequestForm() {
       if (response.ok) {
         setSubmitStatus("success");
         setFormData({ name: "", phone: "", email: "", service: "" });
+        setErrors({});
         
         // Track event in Google Analytics
         if (typeof window !== "undefined" && (window as any).gtag) {
@@ -96,10 +180,30 @@ export function QuoteRequestForm() {
           type="text"
           placeholder="John Smith"
           value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          onChange={(e) => {
+            const sanitizedValue = validateNameInput(e.target.value);
+            setFormData({ ...formData, name: sanitizedValue });
+            if (errors.name) setErrors({ ...errors, name: undefined });
+          }}
+          onBlur={() => {
+            // Validate on blur for immediate feedback
+            const nameTrimmed = formData.name.trim();
+            if (nameTrimmed && nameTrimmed.length > 0) {
+              if (nameTrimmed.length < 3) {
+                setErrors({ ...errors, name: "Please enter your full name (minimum 3 characters)" });
+              } else if (nameTrimmed.split(' ').filter((word: string) => word.length > 0).length < 2) {
+                setErrors({ ...errors, name: "Please enter both first and last name" });
+              }
+            }
+          }}
           required
-          className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40"
+          className={`bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40 ${
+            errors.name ? "border-red-500" : ""
+          }`}
         />
+        {errors.name && (
+          <p className="text-xs text-red-400 mt-1">{errors.name}</p>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -109,12 +213,38 @@ export function QuoteRequestForm() {
         <Input
           id="phone"
           type="tel"
-          placeholder="+44 20 1234 5678"
+          placeholder="+44 7123 456 789 or 020 1234 5678"
           value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          onChange={(e) => {
+            const sanitizedValue = validatePhoneInput(e.target.value);
+            setFormData({ ...formData, phone: sanitizedValue });
+            if (errors.phone) setErrors({ ...errors, phone: undefined });
+          }}
+          onBlur={() => {
+            // Validate on blur for immediate feedback
+            const phoneTrimmed = formData.phone.trim().replace(/\s/g, '');
+            if (phoneTrimmed && phoneTrimmed.length > 0) {
+              const phoneFormatted = formData.phone.trim();
+              const phoneDigitsOnly = phoneTrimmed.replace(/[^0-9+]/g, '');
+              const ukMobilePattern = /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/;
+              const ukLandlinePattern = /^(\+44\s?[1-2]\d{1,2}|\(?0[1-2]\d{1,2}\)?)\s?\d{3,4}\s?\d{4}$/;
+              const internationalPattern = /^\+\d{10,15}$/;
+              
+              if (!ukMobilePattern.test(phoneFormatted) && 
+                  !ukLandlinePattern.test(phoneFormatted) && 
+                  !internationalPattern.test(phoneDigitsOnly)) {
+                setErrors({ ...errors, phone: "Please enter a valid UK phone number (e.g., +44 7123 456 789 or 020 1234 5678)" });
+              }
+            }
+          }}
           required
-          className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40"
+          className={`bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40 ${
+            errors.phone ? "border-red-500" : ""
+          }`}
         />
+        {errors.phone && (
+          <p className="text-xs text-red-400 mt-1">{errors.phone}</p>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -126,9 +256,17 @@ export function QuoteRequestForm() {
           type="email"
           placeholder="john@example.com"
           value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40"
+          onChange={(e) => {
+            setFormData({ ...formData, email: e.target.value });
+            if (errors.email) setErrors({ ...errors, email: undefined });
+          }}
+          className={`bg-white/10 border-white/20 text-primary-foreground placeholder:text-white/50 focus:border-white/40 ${
+            errors.email ? "border-red-500" : ""
+          }`}
         />
+        {errors.email && (
+          <p className="text-xs text-red-400 mt-1">{errors.email}</p>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -137,10 +275,15 @@ export function QuoteRequestForm() {
         </Label>
         <Select
           value={formData.service}
-          onValueChange={(value) => setFormData({ ...formData, service: value })}
+          onValueChange={(value) => {
+            setFormData({ ...formData, service: value });
+            if (errors.service) setErrors({ ...errors, service: undefined });
+          }}
           required
         >
-          <SelectTrigger className="bg-white/10 border-white/20 text-primary-foreground focus:border-white/40">
+          <SelectTrigger className={`bg-white/10 border-white/20 text-primary-foreground focus:border-white/40 ${
+            errors.service ? "border-red-500" : ""
+          }`}>
             <SelectValue placeholder="Select a service" />
           </SelectTrigger>
           <SelectContent>
@@ -151,6 +294,9 @@ export function QuoteRequestForm() {
             ))}
           </SelectContent>
         </Select>
+        {errors.service && (
+          <p className="text-xs text-red-400 mt-1">{errors.service}</p>
+        )}
       </div>
 
       {submitStatus === "success" && (

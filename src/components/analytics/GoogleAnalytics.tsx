@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 interface GoogleAnalyticsProps {
   measurementId: string;
@@ -10,12 +10,13 @@ interface GoogleAnalyticsProps {
 
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (!measurementId) return;
 
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+    // Use window.location.search for search params to avoid SSR issues
+    const searchParams = typeof window !== 'undefined' ? window.location.search : '';
+    const url = pathname + searchParams;
     
     // Send pageview with custom URL
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -23,7 +24,7 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
         page_path: url,
       });
     }
-  }, [pathname, searchParams, measurementId]);
+  }, [pathname, measurementId]);
 
   if (!measurementId) {
     return null;

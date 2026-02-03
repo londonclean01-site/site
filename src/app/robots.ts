@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://london-clean.com/sitemap.xml",
+    sitemap: "https://london-clean01.co.uk/sitemap.xml",
   };
 }

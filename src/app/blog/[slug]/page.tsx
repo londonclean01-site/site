@@ -51,7 +51,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.description,
-    "image": `https://londonclean.co.uk${post.image}`,
+    "image": `https://london-clean01.co.uk${post.image}`,
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
@@ -63,12 +63,12 @@ export default async function BlogPostPage({ params }: Props) {
       "name": "London Clean",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://londonclean.co.uk/logo.png"
+        "url": "https://london-clean01.co.uk/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://londonclean.co.uk/blog/${slug}`
+      "@id": `https://london-clean01.co.uk/blog/${slug}`
     }
   };
 

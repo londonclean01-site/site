@@ -39,11 +39,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: area.title,
       description: area.metaDescription,
-      url: `https://londonclean.co.uk/areas/${slug}`,
+      url: `https://london-clean01.co.uk/areas/${slug}`,
       type: 'website',
     },
     alternates: {
-      canonical: `https://londonclean.co.uk/areas/${slug}`,
+      canonical: `https://london-clean01.co.uk/areas/${slug}`,
     },
   };
 }
@@ -82,7 +82,7 @@ export default async function AreaPage({ params }: Props) {
     "provider": {
       "@type": "LocalBusiness",
       "name": "London Clean",
-      "@id": "https://londonclean.co.uk"
+      "@id": "https://london-clean01.co.uk"
     },
     "areaServed": {
       "@type": "Place",

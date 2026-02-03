@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Professional Cleaning Services in London | LondonClean",
     description: "Comprehensive cleaning services for homes and offices across Greater London.",
-    url: "https://londonclean.co.uk/services",
+    url: "https://london-clean01.co.uk/services",
   },
   alternates: {
-    canonical: "https://londonclean.co.uk/services",
+    canonical: "https://london-clean01.co.uk/services",
   },
 };
 

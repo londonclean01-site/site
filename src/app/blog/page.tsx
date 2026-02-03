@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cleaning Tips & Advice Blog | London Clean",
     description: "Expert cleaning tips and guides for London homes and offices.",
-    url: "https://londonclean.co.uk/blog",
+    url: "https://london-clean01.co.uk/blog",
   },
   alternates: {
-    canonical: "https://londonclean.co.uk/blog",
+    canonical: "https://london-clean01.co.uk/blog",
   },
 };
 

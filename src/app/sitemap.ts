@@ -1,7 +1,7 @@
-import { Metadata, Route } from "next";
+import { MetadataRoute } from "next";
 
-export default function sitemap(): Metadata & { url: string; lastModified?: string; changeFrequency?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"; priority?: number; }[] {
-  const baseUrl = "https://london-clean.com"; // TODO: Replace with env var
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://london-clean01.co.uk";
 
   const routes = [
     "",
@@ -9,6 +9,7 @@ export default function sitemap(): Metadata & { url: string; lastModified?: stri
     "/services",
     "/contact",
     "/blog",
+    "/areas",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

@@ -4,18 +4,18 @@ export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://londonclean.co.uk",
+    "@id": "https://london-clean01.co.uk",
     "name": "London Clean",
     "alternateName": "London Clean - Professional Cleaning Service",
     "description": "Professional cleaning services in London. Residential and commercial cleaning across Greater London with eco-friendly products. Book online today.",
-    "url": "https://londonclean.co.uk",
+    "url": "https://london-clean01.co.uk",
     "telephone": "+447438217078",
     "priceRange": "££",
     "email": "info@londonclean.co.uk",
-    "logo": "https://londonclean.co.uk/logo.png",
+    "logo": "https://london-clean01.co.uk/logo.png",
     "image": [
-      "https://londonclean.co.uk/og-image.jpg",
-      "https://londonclean.co.uk/cleaning-service.jpg"
+      "https://london-clean01.co.uk/og-image.jpg",
+      "https://london-clean01.co.uk/cleaning-service.jpg"
     ],
     "address": {
       "@type": "PostalAddress",

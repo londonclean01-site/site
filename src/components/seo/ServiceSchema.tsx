@@ -17,7 +17,7 @@ export function ServiceSchema({ serviceName, description, priceRange = "££", s
     "provider": {
       "@type": "LocalBusiness",
       "name": "London Clean",
-      "@id": "https://londonclean.co.uk",
+      "@id": "https://london-clean01.co.uk",
       "telephone": "+447438217078",
       "email": "info@londonclean.co.uk",
       "address": {
@@ -47,10 +47,10 @@ export function ServiceSchema({ serviceName, description, priceRange = "££", s
       "bestRating": "5",
       "worstRating": "1"
     },
-    "termsOfService": "https://londonclean.co.uk/terms",
+    "termsOfService": "https://london-clean01.co.uk/terms",
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://londonclean.co.uk/contact",
+      "serviceUrl": "https://london-clean01.co.uk/contact",
       "servicePhone": {
         "@type": "ContactPoint",
         "telephone": "+447438217078",

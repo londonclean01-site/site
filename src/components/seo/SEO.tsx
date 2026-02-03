@@ -17,7 +17,7 @@ export function generateSEOMetadata({
   title,
   description,
   keywords = [],
-  ogImage = 'https://londonclean.co.uk/og-image.jpg',
+  ogImage = 'https://london-clean01.co.uk/og-image.jpg',
   ogType = 'website',
   canonicalUrl,
   noindex = false,
@@ -100,7 +100,7 @@ export function generateBlogPostMetadata(
     description,
     keywords,
     ogType: 'article',
-    canonicalUrl: `https://londonclean.co.uk/blog/${slug}`,
+    canonicalUrl: `https://london-clean01.co.uk/blog/${slug}`,
     author,
     publishedTime: publishedDate,
     modifiedTime: modifiedDate,
@@ -123,7 +123,7 @@ export function generateAreaMetadata(
       `house cleaning ${areaName}`,
       ...postcodes.map(code => `cleaning ${code}`),
     ],
-    canonicalUrl: `https://londonclean.co.uk/areas/${slug}`,
+    canonicalUrl: `https://london-clean01.co.uk/areas/${slug}`,
   });
 }
 
@@ -141,6 +141,6 @@ export function generateServiceMetadata(
       `${serviceName.toLowerCase()} London`,
       `professional ${serviceName.toLowerCase()}`,
     ],
-    canonicalUrl: `https://londonclean.co.uk/services/${slug}`,
+    canonicalUrl: `https://london-clean01.co.uk/services/${slug}`,
   });
 }
