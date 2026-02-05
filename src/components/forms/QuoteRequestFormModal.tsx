@@ -159,6 +159,11 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
           (window as any).gtag("event", "quote_request", {
             service: formData.service,
           });
+          
+          // Track Google Ads conversion
+          (window as any).gtag("event", "conversion", {
+            send_to: "AW-17933465567/CONTACT_FORM",
+          });
         }
 
         if (onSuccess) {
