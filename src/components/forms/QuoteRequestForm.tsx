@@ -158,7 +158,9 @@ export function QuoteRequestForm() {
           });
           
           // Track Google Ads conversion
-          (window as any).gtag("event", "ads_conversion_Contact_Us_1", {});
+          (window as any).gtag("event", "conversion", {
+            send_to: "AW-17933465567/bFk3CKr17fMbEN_vq-dC",
+          });
         }
       } else {
         setSubmitStatus("error");
