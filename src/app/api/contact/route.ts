@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, phone, service, email: customerEmail } = body;
+    const { name, phone, service, email: customerEmail, preferredDate, preferredTime, comments } = body;
 
     // Comprehensive server-side validation
     const errors: string[] = [];
@@ -112,6 +112,24 @@ export async function POST(request: NextRequest) {
                       <span style="background: #667eea; color: white; padding: 4px 12px; border-radius: 20px; font-size: 14px;">${service}</span>
                     </td>
                   </tr>
+                  ${preferredDate ? `
+                  <tr>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0; font-weight: bold;">Preferred Date:</td>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0;">${preferredDate}</td>
+                  </tr>
+                  ` : ''}
+                  ${preferredTime ? `
+                  <tr>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0; font-weight: bold;">Preferred Time:</td>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0;">${preferredTime}</td>
+                  </tr>
+                  ` : ''}
+                  ${comments ? `
+                  <tr>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0; font-weight: bold;">Additional Comments:</td>
+                    <td style="padding: 12px; background: white; border: 1px solid #e0e0e0;">${comments}</td>
+                  </tr>
+                  ` : ''}
                 </table>
                 
                 <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
@@ -148,7 +166,7 @@ export async function POST(request: NextRequest) {
 
     // No email service configured
     console.error('RESEND_API_KEY not configured!');
-    console.log('Contact Form Submission (not sent):', { name: nameTrimmed, phone: phoneTrimmed, service, email: emailTrimmed });
+    console.log('Contact Form Submission (not sent):', { name: nameTrimmed, phone: phoneTrimmed, service, email: emailTrimmed, preferredDate, preferredTime, comments });
     
     return NextResponse.json({ 
       error: 'Email service not configured. Please contact us directly at +44 7438 217078',
