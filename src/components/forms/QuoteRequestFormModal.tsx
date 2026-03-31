@@ -12,6 +12,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { CalendarIcon, ClockIcon } from "lucide-react";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Textarea } from "@/components/ui/textarea";
 import { Loader2, CheckCircle2 } from "lucide-react";
 
 const services = [
@@ -32,14 +42,18 @@ interface FormData {
   name: string;
   phone: string;
   email: string;
-  service: string;
+  services: string[];
+  preferredDate: Date | undefined;
+  preferredTime: string;
+  comments: string;
 }
 
 interface FormErrors {
   name?: string;
   phone?: string;
   email?: string;
-  service?: string;
+  services?: string;
+  preferredDate?: string;
 }
 
 interface QuoteRequestFormModalProps {
@@ -51,12 +65,16 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
     name: "",
     phone: "",
     email: "",
-    service: "",
+    services: [],
+    preferredDate: undefined,
+    preferredTime: "",
+    comments: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   // Real-time field validation helpers
   const validateNameInput = (value: string): string => {
@@ -117,9 +135,9 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
       }
     }
 
-    // Service validation
-    if (!formData.service) {
-      newErrors.service = "Please select a service";
+    // Services validation
+    if (formData.services.length === 0) {
+      newErrors.services = "Please select at least one service";
     }
 
     setErrors(newErrors);
@@ -145,19 +163,27 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.services.join(', '),
+          preferredDate: formData.preferredDate ? format(formData.preferredDate, 'yyyy-MM-dd') : '',
+          preferredTime: formData.preferredTime,
+          comments: formData.comments,
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         setSubmitStatus("success");
-        setFormData({ name: "", phone: "", email: "", service: "" });
+        setFormData({ name: "", phone: "", email: "", services: [], preferredDate: undefined, preferredTime: "", comments: "" });
         setErrors({});
         
         if (typeof window !== "undefined" && (window as any).gtag) {
           (window as any).gtag("event", "quote_request", {
-            service: formData.service,
+            service: formData.services.join(', '),
           });
           
           // Track Google Ads conversion
@@ -178,6 +204,19 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
       setErrorMessage("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleServiceToggle = (service: string) => {
+    let updatedServices;
+    if (formData.services.includes(service)) {
+      updatedServices = formData.services.filter(s => s !== service);
+    } else {
+      updatedServices = [...formData.services, service];
+    }
+    setFormData({ ...formData, services: updatedServices });
+    if (errors.services && updatedServices.length > 0) {
+      setErrors({ ...errors, services: undefined });
     }
   };
 
@@ -277,30 +316,99 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
 
       <div className="space-y-2">
         <Label htmlFor="service">
-          Service Required *
+          Services Required *
+        </Label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-60 overflow-y-auto p-1">
+          {services.map((service) => (
+            <div key={service} className="flex items-center space-x-2">
+              <Checkbox 
+                id={`modal-service-${service}`} 
+                checked={formData.services.includes(service)}
+                onCheckedChange={() => handleServiceToggle(service)}
+              />
+              <Label htmlFor={`modal-service-${service}`} className="text-sm cursor-pointer">
+                {service}
+              </Label>
+            </div>
+          ))}
+        </div>
+        {errors.services && (
+          <p className="text-xs text-red-500 mt-1">{errors.services}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="preferredDate">
+          Preferred Date
+        </Label>
+        <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+          <PopoverTrigger asChild>
+            <Button
+              id="preferredDate"
+              variant={"outline"}
+              className={`w-full justify-start text-left font-normal ${errors.preferredDate ? "border-red-500" : ""}`}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {formData.preferredDate ? format(formData.preferredDate, "PPP") : <span>Pick a date</span>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0" align="start">
+            <Calendar
+              mode="single"
+              selected={formData.preferredDate}
+              onSelect={(day) => {
+                setFormData({ ...formData, preferredDate: day });
+                setIsCalendarOpen(false);
+                if (errors.preferredDate) setErrors({ ...errors, preferredDate: undefined });
+              }}
+              initialFocus
+              disabled={(date) => date < new Date()}
+            />
+          </PopoverContent>
+        </Popover>
+        {errors.preferredDate && (
+          <p className="text-xs text-red-500 mt-1">{errors.preferredDate}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="preferredTime">
+          Preferred Time
         </Label>
         <Select
-          value={formData.service}
-          onValueChange={(value) => {
-            setFormData({ ...formData, service: value });
-            if (errors.service) setErrors({ ...errors, service: undefined });
-          }}
-          required
+          value={formData.preferredTime}
+          onValueChange={(value) => setFormData({ ...formData, preferredTime: value })}
         >
-          <SelectTrigger className={errors.service ? "border-red-500" : ""}>
-            <SelectValue placeholder="Select a service" />
+          <SelectTrigger>
+            <ClockIcon className="mr-2 h-4 w-4" />
+            <SelectValue placeholder="Select a time" />
           </SelectTrigger>
           <SelectContent>
-            {services.map((service) => (
-              <SelectItem key={service} value={service}>
-                {service}
+            {[
+              "Morning (8:00 - 12:00)",
+              "Afternoon (12:00 - 16:00)",
+              "Evening (16:00 - 20:00)",
+              "Anytime"
+            ].map((time) => (
+              <SelectItem key={time} value={time}>
+                {time}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
-        {errors.service && (
-          <p className="text-xs text-red-500 mt-1">{errors.service}</p>
-        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="comments">
+          Additional Comments
+        </Label>
+        <Textarea
+          id="comments"
+          placeholder="Any additional information or specific requirements..."
+          value={formData.comments}
+          onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+          className="h-24"
+        />
       </div>
 
       {submitStatus === "success" && (

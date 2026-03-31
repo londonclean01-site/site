@@ -27,7 +27,8 @@ const services = [
       "Kitchen and bathroom sanitization",
       "Flexible scheduling to suit your needs"
     ],
-    color: "bg-blue-500/10 text-blue-600"
+    color: "bg-blue-500/10 text-blue-600",
+    price: "£15/hour"
   },
   {
     icon: Building2,
@@ -40,7 +41,8 @@ const services = [
       "Systematic and thorough approach"
     ],
     color: "bg-purple-500/10 text-purple-600",
-    highlighted: true
+    highlighted: true,
+    price: "£20/hour"
   },
   {
     icon: Sparkles,
@@ -52,7 +54,8 @@ const services = [
       "Removal of built-up dirt and grime",
       "Kitchen appliances deep cleaned"
     ],
-    color: "bg-cyan-500/10 text-cyan-600"
+    color: "bg-cyan-500/10 text-cyan-600",
+    price: "£25/hour"
   },
   {
     icon: HardHat,
@@ -64,7 +67,8 @@ const services = [
       "Floor polishing and protection",
       "Safe disposal of construction waste"
     ],
-    color: "bg-orange-500/10 text-orange-600"
+    color: "bg-orange-500/10 text-orange-600",
+    price: "£30/hour"
   },
   {
     icon: PartyPopper,
@@ -76,7 +80,8 @@ const services = [
       "Trash removal and disposal",
       "Surface sanitization"
     ],
-    color: "bg-pink-500/10 text-pink-600"
+    color: "bg-pink-500/10 text-pink-600",
+    price: "£20/hour"
   },
   {
     icon: Leaf,
@@ -88,7 +93,8 @@ const services = [
       "Safe for children and pets",
       "Sustainable cleaning practices"
     ],
-    color: "bg-green-500/10 text-green-600"
+    color: "bg-green-500/10 text-green-600",
+    price: "£25/hour"
   },
   {
     icon: Crown,
@@ -100,7 +106,8 @@ const services = [
       "Discretion and professionalism",
       "Customized cleaning plans"
     ],
-    color: "bg-amber-500/10 text-amber-600"
+    color: "bg-amber-500/10 text-amber-600",
+    price: "£35/hour"
   }
 ];
 
@@ -165,6 +172,20 @@ export function ServicesDetailedSection() {
                     </li>
                   ))}
                 </ul>
+                
+                <div className="mb-4 p-3 bg-muted/50 rounded-lg">
+                  <p className="text-sm text-muted-foreground">Starting from:</p>
+                  <p className="text-lg font-bold text-foreground">{service.price}</p>
+                </div>
+                
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full rounded-full" 
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
+                  Request Quote
+                </Button>
               </motion.div>
             );
           })}

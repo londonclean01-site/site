@@ -10,6 +10,8 @@ import { PricingSection } from "@/components/sections/PricingSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { GallerySection } from "@/components/sections/GallerySection";
+import { OurClientsSection } from "@/components/sections/OurClientsSection";
 
 export default function Home() {
   const schema = generateLocalBusinessSchema();
@@ -23,6 +25,8 @@ export default function Home() {
       <ServicesSection />
       <CleaningSolutionsCombinedSection />
       <BeforeAfterSection />
+      <GallerySection />
+      <OurClientsSection />
       <PricingSection />
       <TestimonialsSection />
       <FAQSection />
