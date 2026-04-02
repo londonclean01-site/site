@@ -25,16 +25,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader2, CheckCircle2 } from "lucide-react";
 
 const services = [
-  "Domestic Cleaning",
-  "End of Tenancy Cleaning",
-  "Deep Cleaning",
-  "After Builders Cleaning",
-  "After Party Cleaning",
-  "Eco Cleaning",
-  "VIP / Luxury Cleaning",
+  "Domestic Cleaning £15/hour",
+  "End of Tenancy Cleaning £20/hour",
+  "Deep Cleaning £25/hour",
+  "After Builders Cleaning £30/hour",
+  "After Party Cleaning £20/hour",
+  "Eco Cleaning £25/hour",
+  "VIP / Luxury Cleaning £35/hour",
   "Commercial Cleaning",
-  "Carpet Cleaning",
-  "Window Cleaning",
+  "Carpet Cleaning £30/room",
+  "Window Cleaning from £40",
   "Other",
 ];
 
