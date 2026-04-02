@@ -13,7 +13,6 @@ const galleryImages = [
   "/placeholder/gallery4.jpg",
   "/placeholder/gallery5.jpg",
   "/placeholder/gallery6.jpg",
-  "/placeholder/gallery7.jpg",
 ];
 
 export function GallerySection() {
