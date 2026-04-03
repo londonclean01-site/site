@@ -26,7 +26,7 @@ export default function Home() {
       <CleaningSolutionsCombinedSection />
       <BeforeAfterSection />
       <GallerySection />
-      <OurClientsSection />
+     // <OurClientsSection />
       <PricingSection />
       <TestimonialsSection />
       <FAQSection />
