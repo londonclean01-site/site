@@ -7,17 +7,17 @@ import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 const features = [
   {
     icon: Shield,
-    title: "Freshness you deserve",
+    title: "Fresh Results, Every Visit",
     description: "Step into a space that feels as fresh as it looks. Our cleaning services are designed to rejuvenate cleanliness efficient processes.",
   },
   {
     icon: Clock,
-    title: "Time-saving cleaning",
+    title: "Flexible Scheduling Around You",
     description: "You can focus on what truly matters. With efficient processes, expert teams, and thorough attention to detail.",
   },
   {
     icon: Leaf,
-    title: "Experience spotless",
+    title: "Spotless Homes & Offices Across London",
     description: "Our expert cleaning services go beyond the surface to ensure every corner of your home or office.",
   },
 ];
@@ -35,11 +35,10 @@ export function FeaturesSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Clean beyond the surface
+            London's Trusted Cleaning Service — Home & Office
           </h2>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-            At our core, we believe that true cleanliness goes beyond what the eye can see.<br />
-            Our expert team tackles dirt, grime, and bacteria.
+            At London Clean, we go beyond the surface. Our expert cleaning teams serve clients across Greater London — from domestic homes in Kensington to busy offices in Canary Wharf. When you search for "cleaning services near me", we're the local answer you can count on.
           </p>
         </motion.div>
 
