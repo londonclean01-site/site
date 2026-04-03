@@ -2,15 +2,15 @@ export const generateLocalBusinessSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "London Clean",
+    "name": "London Clean 01",
     "image": "https://london-clean.com/og-image.jpg", // TODO: Replace with actual image
     "url": "https://london-clean.com", // TODO: Replace with actual domain
     "telephone": "+44 20 1234 5678", // TODO: Replace with actual phone
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 High Street",
+      "streetAddress": "91 Upper Clapton Rd, London E5 9BX",
       "addressLocality": "London",
-      "postalCode": "SW1A 1AA",
+      "postalCode": "E5 9BX",
       "addressCountry": "UK"
     },
     "geo": {
