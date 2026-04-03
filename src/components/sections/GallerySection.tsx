@@ -77,7 +77,8 @@ export function GallerySection() {
             variant="outline"
             size="lg"
             className="rounded-full"
-            asChild>
+            asChild
+            >
             <Link href="/our-clients">
               See All work gallery
               <ArrowRight className="w-4 h-4 ml-2" />
