@@ -83,11 +83,12 @@ export function HeroSection() {
               className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-muted"
             >
                <Image 
-                 src="/heroblock.png" 
-                 alt="Professional cleaning service in modern London home"
-                 fill
-                 className="object-cover"
-                 priority
+                src="/heroblock.png"
+                alt="Professional cleaning service in modern London home"
+                fill
+                className="object-cover"
+                priority              // ✅ добавляет fetchpriority="high" и отключает lazy-load
+                sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1200px"
                />
             </motion.div>
           </div>
