@@ -8,9 +8,12 @@ export function Logo() {
         <Image
           src="/favicon.webp"
           alt="London Clean 01 Logo"
-          fill
+          width={80}
+          height={80}
+          sizes="(max-width: 768px) 64px, 80px"
           className="object-cover"
           priority
+          quality={75}
         />
       </div>
       <span className="font-bold text-lg md:text-xl tracking-tight">London Clean 01</span>
