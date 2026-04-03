@@ -79,7 +79,7 @@ export function GallerySection() {
             className="rounded-full"
             asChild>
             <Link href="/our-clients">
-              See All Clients
+              See All work gallery
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
