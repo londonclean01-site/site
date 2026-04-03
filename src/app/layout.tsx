@@ -17,7 +17,6 @@ const inter = Inter({
 
 const WhatsAppButton = dynamic(
   () => import("@/components/ui/WhatsAppButton").then(m => m.WhatsAppButton),
-  { ssr: false }
 );
 
 export const metadata: Metadata = defaultMetadata;
