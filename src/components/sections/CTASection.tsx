@@ -32,7 +32,7 @@ export function CTASection() {
             {/* Left Side - Heading & Benefits */}
             <div>
               <h2 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-6 tracking-tight">
-                Book a Cleaning Service in London Today!</span>
+                Book a Cleaning Service in London Today!
               </h2>
               <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
                 Stop searching for "cleaning services near me" — London Clean is already here. Our professional cleaners cover 15+ areas across Greater London and are ready to transform your home or office. Get a free quote in minutes.
