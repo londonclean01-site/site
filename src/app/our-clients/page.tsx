@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GallerySection } from "@/components/sections/GallerySection";
+import { AllGallerySection } from "@/components/sections/AllGallerySection";
 
 export default function OurClientsPage() {
   return (
@@ -14,7 +14,7 @@ export default function OurClientsPage() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Clients</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our work gallery</h1>
           <p className="text-base md:text-lg text-muted-foreground">
             We take pride in serving a wide range of clients across London. Below are galleries showcasing our work for various clients.
           </p>
@@ -22,17 +22,10 @@ export default function OurClientsPage() {
 
         <div className="space-y-24">
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Client 1</h2>
-            <GallerySection />
+            <h2 className="text-2xl font-bold mb-6 text-center">Clients</h2>
+            <AllGallerySection />
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Client 2</h2>
-            <GallerySection />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Client 3</h2>
-            <GallerySection />
-          </div>
+
         </div>
       </div>
     </div>
