@@ -40,7 +40,7 @@ export function GallerySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative h-64 rounded-xl overflow-hidden cursor-pointer border shadow-sm"
+              className="relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer border shadow-sm"
               onClick={() => setSelectedImage(img)}
             >
               <Image
