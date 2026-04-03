@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
