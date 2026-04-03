@@ -19,7 +19,7 @@ export function CTASection() {
       <div className="container mx-auto px-4 sm:px-6 md:px-6 max-w-7xl relative z-10">
         <motion.div
           {...fadeInUp}
-          className="relative rounded-[2.5rem] bg-primary overflow-hidden px-6 py-16 md:px-16 md:py-24"
+          className="relative text-white rounded-[2.5rem] bg-primary overflow-hidden px-6 py-16 md:px-16 md:py-24"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
