@@ -15,28 +15,28 @@ interface TabItem {
 const tabs: TabItem[] = [
   {
     number: "1",
-    title: "Professionalism and Quality Combined",
+    title: "Fully Vetted & Insured Cleaners Across London",
     description: "We specialize in delivering exceptional construction services with a focus on quality, integrity, and customer satisfaction. With over 20 years of experience.",
     image: "/punkt1.jpg",
     imageAlt: "Professional cleaning service in London",
   },
   {
     number: "2",
-    title: "Dedicated to making your life easier",
+    title: "Office & Home Cleaning Services Near You",
     description: "We are dedicated to making your life easier by providing professional, reliable, and affordable cleaning services, ensuring a spotless and stress-free environment for you.",
     image: "https://images.unsplash.com/photo-1585421514738-01798e348b17?q=80&w=1200&auto=format&fit=crop",
     imageAlt: "Reliable cleaning services",
   },
   {
     number: "3",
-    title: "Where cleanliness meets convenience",
+    title: "Same-Day Bookings Available in Most London Areas",
     description: "Experience the perfect blend of cleanliness and convenience with our innovative solutions, ensuring a spotless environment effortlessly, saving you time and effort every day.",
     image: "/punkt3.jpg",
     imageAlt: "Convenient cleaning solutions",
   },
   {
     number: "4",
-    title: "Creating spaces that sparkle and shine",
+    title: "Eco-Friendly Products — Safe for Kids & Pets",
     description: "We create clean, fresh, and sparkling spaces with our professional cleaning services, ensuring a healthy and welcoming environment for your home or workplace.",
     image: "/punkt4.jpg",
     imageAlt: "Sparkling clean spaces",
@@ -105,7 +105,7 @@ export function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-3 leading-tight"
               >
-                Committed to Excellence and Innovation in Every Clean.
+                Why Choose London Clean for Your Cleaning Service in London?
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
