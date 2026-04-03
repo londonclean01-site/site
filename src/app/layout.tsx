@@ -30,7 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <head>
         <Script
           id="gtm-script"
           strategy="afterInteractive"
