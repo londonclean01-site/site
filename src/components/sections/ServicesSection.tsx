@@ -12,15 +12,23 @@ const services = [
   {
     id: "domestic",
     icon: Home,
-    title: "Domestic Cleaning",
+    title: "Domestic Cleaning London",
     description: "Keep your home consistently clean and comfortable with our regular domestic cleaning services. We handle all the routine cleaning tasks so you can enjoy your free time.",
     features: ["Regular weekly or bi-weekly cleaning", "Kitchen & bathroom sanitization", "Flexible scheduling"],
     image: "/1serivce.jpeg"
   },
+    {
+    id: "office",
+    icon: Layers,
+    title: "Office Cleaning London",
+    description: "Need reliable office cleaning in London? We provide daily, weekly, and one-off commercial cleaning for offices, retail spaces, and co-working hubs across Greater London. Flexible hours including early morning and weekend cleans.",
+    features: ["Full deposit return guarantee", "Inspection-ready results", "Systematic deep cleaning"],
+    image: "/2service.jpg"
+  },
   {
     id: "end-of-tenancy",
     icon: Building2,
-    title: "End of Tenancy Cleaning",
+    title: "End of Tenancy Cleaning London",
     description: "Moving out? Leave the cleaning to us. Professional end of tenancy cleaning designed to meet landlord and letting agency standards across London.",
     features: ["Full deposit return guarantee", "Inspection-ready results", "Systematic deep cleaning"],
     image: "/2service.jpg"
@@ -28,7 +36,7 @@ const services = [
   {
     id: "deep-cleaning",
     icon: Sparkles,
-    title: "Deep Cleaning",
+    title: "Deep Cleaning London",
     description: "For a thorough and intensive clean, our deep cleaning services target every corner of your space. Perfect for spring cleaning or preparing for special occasions.",
     features: ["Every corner cleaned", "Hard-to-reach spots included", "Kitchen appliances deep cleaned"],
     image: "/3service.jpg"
