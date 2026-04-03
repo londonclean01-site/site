@@ -24,11 +24,11 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-foreground leading-[1.1]">
-                Quality cleaning for your <span className="text-primary">peace of mind</span> in London.
+                Cleaning Services in London <span className="text-primary">for your peace of mind</span>
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                Professional, reliable, and eco-friendly cleaning services for homes and offices across Greater London. We make your space sparkle while you focus on what matters.
+              Professional and eco-friendly cleaning services in London for homes and offices. Whether you need a one-off deep clean or regular office cleaning in London, our vetted team is near you and ready to help — 7 days a week.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
