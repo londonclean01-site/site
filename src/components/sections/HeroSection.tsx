@@ -75,23 +75,19 @@ export function HeroSection() {
           </div>
 
           {/* Hero Image */}
-          <div className="flex-1 w-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-muted"
-            >
-               <Image 
-                src="/heroblock.png"
-                alt="Professional cleaning service in modern London home"
-                fill
-                className="object-cover"
-                priority              // ✅ добавляет fetchpriority="high" и отключает lazy-load
-                sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1200px"
-               />
-            </motion.div>
-          </div>
+{/* Hero Image */}
+<div className="flex-1 w-full">
+  <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
+    <Image 
+      src="/heroblock.png"
+      alt="Professional cleaning service in modern London home"
+      fill
+      className="object-cover"
+      priority
+      sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1200px"
+    />
+  </div>
+</div>
         </div>
       </div>
       <QuoteModal open={isQuoteModalOpen} onOpenChange={setIsQuoteModalOpen} />
