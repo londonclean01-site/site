@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const siteConfig = {
-  name: "London Clean",
-  description: "Professional cleaning service in London. Residential & commercial cleaning across Greater London. Eco-friendly products, trusted cleaners. Book online today. ⭐ 4.8/5 (566 reviews)",
+  name: "London Clean 01",
+  description: "Looking for reliable cleaning services in London? London Clean offers professional home & office cleaning services near you across Greater London. Book today from £20/hr.",
   url: "https://london-clean01.co.uk",
   ogImage: "https://london-clean01.co.uk/og-image.jpg",
   locale: "en_GB",
@@ -24,14 +24,14 @@ export const siteConfig = {
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Professional Cleaning Service in London | London Clean",
+    default: "Cleaning Services London | Office & Home Cleaning Near Me | London Clean 01",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [{ name: "London Clean" }],
-  creator: "London Clean",
-  publisher: "London Clean",
+  authors: [{ name: "London Clean 01" }],
+  creator: "London Clean 01",
+  publisher: "London Clean 01",
   alternates: {
     canonical: siteConfig.url,
   },
@@ -39,7 +39,7 @@ export const defaultMetadata: Metadata = {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
-    title: "Professional Cleaning Service in London | London Clean",
+    title: "Cleaning Services London | Office & Home Cleaning Near Me | London Clean 01",
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -53,7 +53,7 @@ export const defaultMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Cleaning Service in London | London Clean",
+    title: "Cleaning Services London | Office & Home Cleaning Near Me | London Clean 01",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: "@londonclean",
