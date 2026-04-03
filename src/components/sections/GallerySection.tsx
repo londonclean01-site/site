@@ -72,6 +72,18 @@ export function GallerySection() {
           </DialogContent>
         </Dialog>
 
+        <div className="text-center mt-8">
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full"
+            asChild>
+            <Link href="/our-clients">
+              See All work gallery
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Button>
+        </div>
         
       </div>
     </section>
