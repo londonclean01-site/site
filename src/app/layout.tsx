@@ -19,23 +19,23 @@ const inter = Inter({
 // ✅ Аналитика грузится после рендера (не блокирует LCP)
 const GoogleAnalytics = dynamic(
   () => import("@/components/analytics/GoogleAnalytics").then(m => m.GoogleAnalytics),
-  { ssr: false }
+
 );
 const GoogleTagManager = dynamic(
   () => import("@/components/analytics/GoogleTagManager").then(m => m.GoogleTagManager),
-  { ssr: false }
+
 );
 const GoogleTagManagerNoScript = dynamic(
   () => import("@/components/analytics/GoogleTagManager").then(m => m.GoogleTagManagerNoScript),
-  { ssr: false }
+
 );
 const GoogleAdsTag = dynamic(
   () => import("@/components/analytics/GoogleAdsTag").then(m => m.GoogleAdsTag),
-  { ssr: false }
+
 );
 const WhatsAppButton = dynamic(
   () => import("@/components/ui/WhatsAppButton").then(m => m.WhatsAppButton),
-  { ssr: false }
+
 );
 
 export const metadata: Metadata = defaultMetadata;
