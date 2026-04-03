@@ -39,11 +39,10 @@ export function PricingSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
-            Clear Pricing, Exceptional Clean
+            Affordable Cleaning Services Near You in London
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            At London Clean, we believe in transparent and fair pricing for our premium cleaning services across London. 
-            We understand that you want value for your money, and we're committed to providing just that.
+            Our cleaning services in London start from just £20/hour with no hidden fees and no long-term contracts. Whether you need a one-time deep clean or regular office cleaning in London, we have a plan that fits your budget..
           </p>
         </motion.div>
 
