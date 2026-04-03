@@ -13,6 +13,18 @@ const galleryImages = [
   "/placeholder/gallery4.jpg",
   "/placeholder/gallery5.jpg",
   "/placeholder/gallery6.jpg",
+  "/placeholder/gallery7.jpg",
+  "/placeholder/gallery8.jpg",
+  "/placeholder/gallery9.jpg",
+  "/placeholder/gallery10.jpg",
+  "/placeholder/gallery11.jpg",
+  "/placeholder/gallery12.jpg",
+  "/placeholder/gallery13.jpg",
+  "/placeholder/gallery14.jpg",
+  "/placeholder/gallery15.jpg",
+  "/placeholder/gallery16.jpg",
+  "/placeholder/gallery17.jpg",
+  "/placeholder/gallery18.jpg",
 ];
 
 export function AllGallerySection() {
