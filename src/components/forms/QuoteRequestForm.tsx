@@ -450,7 +450,7 @@ export function QuoteRequestForm() {
       </Button>
 
       <p className="text-xs text-primary-foreground/70 text-center">
-        We'll respond within 24 hours. Your information is kept confidential.
+        We'll respond in few minutes. Your information is kept confidential.
       </p>
     </form>
   );
