@@ -23,7 +23,7 @@ export function WhatsAppButton() {
       <MessageCircle className="w-7 h-7" />
       
       {/* Tooltip */}
-      <span className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <span className="whatsapp_btn absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         Chat on WhatsApp
       </span>
 
