@@ -449,7 +449,7 @@ export function QuoteRequestFormModal({ onSuccess }: QuoteRequestFormModalProps)
       </Button>
 
       <p className="text-xs text-muted-foreground text-center">
-        We'll respond within 24 hours. Your information is kept confidential.
+        We'll respond in few minutes. Your information is kept confidential.
       </p>
     </form>
   );
