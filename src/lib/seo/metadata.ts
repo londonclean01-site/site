@@ -74,4 +74,7 @@ export const defaultMetadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+    verification: {
+    google: "cN6ApF7SFPU99MOLy8DavUx42LfVnUPrK04SMkuP74o",
+  },
 };
