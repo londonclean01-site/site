@@ -68,7 +68,7 @@ export function HeroSection() {
                     <Star className="w-4 h-4 fill-current" />
                     <Star className="w-4 h-4 fill-current" />
                   </div>
-                  <span className="text-muted-foreground">Trusted by 500+ Londoners</span>
+                  <span className="text-muted-foreground">Trusted by 50+ Londoners</span>
                 </div>
               </div>
             </motion.div>
