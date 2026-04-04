@@ -36,16 +36,12 @@ export default function RootLayout({
           src={`https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
         />
       </head>
-      </head>
-    
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           inter.variable
         )}
       >
-
-        
         <LocalBusinessSchema />
         <Header />
         <main className="flex-1 min-h-screen pt-20">
