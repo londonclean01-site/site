@@ -213,7 +213,7 @@ export function TestimonialsSection() {
             <Card className="border-none shadow-lg bg-primary text-primary-foreground">
               <CardContent className="p-8 md:p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
                 <div className="mb-8">
-                  <p className="text-7xl md:text-8xl font-bold mb-4">5.8</p>
+                  <p className="text-7xl md:text-8xl font-bold mb-4">5.0</p>
                   <div className="flex gap-1 justify-center mb-2">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -222,7 +222,7 @@ export function TestimonialsSection() {
                       />
                     ))}
                   </div>
-                  <p className="text-sm opacity-90">(566 Reviews)</p>
+                  <p className="text-sm opacity-90">(20+ Reviews)</p>
                 </div>
                 
                 <div className="border-t border-primary-foreground/20 pt-6 w-full">
