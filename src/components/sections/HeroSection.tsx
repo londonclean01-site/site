@@ -24,7 +24,7 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-foreground leading-[1.1]">
-                Cleaning Services in London <span className="text-primary">for your peace of mind</span>
+                Cleaning Services in London <span className="text-primary">for your peace of mind 24/7</span>
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
