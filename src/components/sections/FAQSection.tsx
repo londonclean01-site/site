@@ -20,7 +20,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How do I book a cleaning service?",
-    answer: "Booking is simple! You can request a free quote through our contact form, call us directly at +44 20 1234 5678, or email us at info@londonclean.co.uk. We'll discuss your requirements, provide a transparent quote, and schedule a convenient time for your service."
+    answer: "Booking is simple! You can request a free quote through our contact form, call us directly at +44 7438 217078, or email us at info@londonclean.co.uk. We'll discuss your requirements, provide a transparent quote, and schedule a convenient time for your service."
   },
   {
     question: "Do I need to provide cleaning supplies?",
