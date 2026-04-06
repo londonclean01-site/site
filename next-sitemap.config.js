@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://londonclean.co.uk',
+  siteUrl: process.env.SITE_URL || 'https://www.london-clean01.co.uk',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   robotsTxtOptions: {
