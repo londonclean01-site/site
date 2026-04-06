@@ -3,8 +3,8 @@ import { Metadata } from "next";
 export const siteConfig = {
   name: "London Clean 01",
   description: "Looking for reliable cleaning services in London? London Clean offers professional home & office cleaning services near you across Greater London. Book today from £20/hr.",
-  url: "https://london-clean01.co.uk",
-  ogImage: "https://london-clean01.co.uk/og-image.jpg",
+  url: "https://www.london-clean01.co.uk",
+  ogImage: "https://www.london-clean01.co.uk/og-image.jpg",
   locale: "en_GB",
   keywords: [
     "cleaning service London",
