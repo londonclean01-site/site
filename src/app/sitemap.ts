@@ -1,12 +1,16 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://london-clean01.co.uk";
+  const baseUrl = "https://www.london-clean01.co.uk";
 
   const routes = [
     "",
     "/about",
     "/services",
+    "/services/office",
+    "/services/end-of-tenancy",
+    "/services/after-builders",
+    "/services/domestic",
     "/contact",
     "/blog",
     "/areas",
