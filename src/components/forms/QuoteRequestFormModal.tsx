@@ -25,7 +25,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader2, CheckCircle2 } from "lucide-react";
 
 const services = [
-  "Domestic Cleaning £15/hour",
+  "Domestic Cleaning £20/hour",
   "End of Tenancy Cleaning £20/hour",
   "Deep Cleaning £25/hour",
   "After Builders Cleaning £30/hour",
