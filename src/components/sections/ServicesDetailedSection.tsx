@@ -28,7 +28,7 @@ const services = [
       "Flexible scheduling to suit your needs"
     ],
     color: "bg-blue-500/10 text-blue-600",
-    price: "£15/hour"
+    price: "£20/hour"
   },
   {
     icon: Building2,
